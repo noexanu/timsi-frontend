@@ -1,10 +1,9 @@
 import React from 'react';
+import LoginPage from './components/loginPage/LoginPage';
 
 function App() {
   return (
-    <h1>
-      Hello World!
-    </h1>
+    <LoginPage />
   );
 }
 
