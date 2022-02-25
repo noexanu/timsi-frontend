@@ -1,5 +1,6 @@
 import { dirname, resolve } from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin';
 
 const currentFilePath = dirname(resolve('./webpack.config.js'));
 
@@ -25,6 +26,10 @@ export default {
           extensions: ['.ts', '.tsx', '.js', '.jsx'],
         },
       },
+      {
+        test: /\.(png|svg|gif|jpe?g)$/,
+        type: 'asset/resource',
+      },
     ],
   },
   performance: {
@@ -35,4 +40,9 @@ export default {
       template: resolve(currentFilePath, './public/index.html'),
     }),
   ],
+  resolve: {
+    plugins: [
+      new TsconfigPathsPlugin(),
+    ],
+  },
 };
