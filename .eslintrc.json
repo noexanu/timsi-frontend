@@ -20,6 +20,7 @@
   },
   "rules": {
     "linebreak-style": "off",
+    "react/require-default-props": "off",
     "no-underscore-dangle": ["error", { "enforceInMethodNames": false }]
   }
 }
