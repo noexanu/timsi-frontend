@@ -19,10 +19,13 @@
       "public/*": ["./public/*"],
       "images/*": ["./public/static/images/*"],
       "components/*": ["./src/components/*"],
-      "constants/*": ["src/constants/*"],
+      "constants/*": ["./src/constants/*"],
+      "controllers/*": ["./src/controllers/*"],
+      "helpers/*": ["./src/helpers/*"],
+      "services/*": ["./src/services/*"],
       "store/*": ["./src/store/*"],
-      "types/*": ["src/types/*"],
-      "utils/*": ["src/utils/*"],
+      "types/*": ["./src/types/*"],
+      "utils/*": ["./src/utils/*"],
     },                                                   /* Specify a set of entries that re-map imports to additional lookup locations. */
     "resolveJsonModule": true,                           /* Enable importing .json files */
 

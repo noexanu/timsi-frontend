@@ -14,6 +14,7 @@ export default {
   output: {
     filename: '[name].bundle.js',
     path: resolve(currentFilePath, './build'),
+    publicPath: '/',
     clean: true,
   },
   module: {
@@ -27,10 +28,17 @@ export default {
         },
       },
       {
+        test: /\.html$/,
+        use: 'html-loader',
+      },
+      {
         test: /\.(png|svg|gif|jpe?g)$/,
         type: 'asset/resource',
       },
     ],
+  },
+  devServer: {
+    historyApiFallback: true,
   },
   performance: {
     hints: false,
