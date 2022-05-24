@@ -1,13 +1,14 @@
 import styled from 'styled-components';
 
 export const AuthorizationCardLayout = styled.div`
-  padding: 0 20px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   gap: 25px;
   font-weight: 700;
   font-family: Arial, Helvetica, sans-serif;
+  overflow-y: scroll;
+  &::-webkit-scrollbar { display: none; }
 `;
 
 export const AuthorizationCardMainSection = styled.h1`
@@ -52,6 +53,11 @@ export const AuthorizationFormGithubButton = styled(AuthorizationFormInput)`
   color: #fff;
   background: linear-gradient(90deg, #000 0%, #646464 100%);
   &:hover { background: #000; }
+`;
+
+export const AuthorizationFormGoogleButton = styled(AuthorizationFormInput)`
+  background: #eee;
+  &:hover { background: #ddd; }
 `;
 
 export const AuthorizationFormChangeButton = styled(AuthorizationFormInput)`
