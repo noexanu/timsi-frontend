@@ -1,3 +1,4 @@
+import AuthController from 'controllers/authController';
 import React, { ChangeEvent, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FormFieldProperties } from 'types/Form.types';
@@ -13,6 +14,7 @@ import {
   AuthorizationFormInput,
   AuthorizationFormContinueButton,
   AuthorizationFormGithubButton,
+  AuthorizationFormGoogleButton,
   AuthorizationFormChangeButton,
   AuthorizationFormErrorContainer,
 } from 'components/authorization/authorization.styles';
@@ -30,10 +32,19 @@ function SignUpCard() {
       const errors = getValidationErrors(validationRules, value);
       return { ...formField, errors };
     });
+
     const hasFormFieldsErrors = !!updatedFormFields.find(
       ({ errors }) => errors.length,
     );
-    if (hasFormFieldsErrors) setFormFields(updatedFormFields);
+
+    if (hasFormFieldsErrors) {
+      setFormFields(updatedFormFields);
+    } else {
+      const formData = signUpForm.reduce((formFieldsData, formField) => (
+        { ...formFieldsData, [formField.name]: formField.value }
+      ), {});
+      AuthController.signup(formData);
+    }
   };
 
   const handleFormUpdate = (
@@ -100,7 +111,12 @@ function SignUpCard() {
         <AuthorizationFormGithubButton
           type="button"
           value="Sign Up with GitHub"
-          onClick={() => {}}
+          onClick={() => AuthController.github()}
+        />
+        <AuthorizationFormGoogleButton
+          type="button"
+          value="Sign Up with Google"
+          onClick={() => AuthController.google()}
         />
         <AuthorizationFormChangeButton
           type="button"
